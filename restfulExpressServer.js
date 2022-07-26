@@ -11,8 +11,8 @@ app.use(express.urlencoded({ extended: true }));
 
 //Error Handler
 app.use((req, res) => {
-  res.status(404).send("Data Not Found, Please Restart");
-});
+    res.status(404).send("Data Not Found, Please Restart");
+  });
 
 //Post, create new route
 app.post("/pets", (req, res) => {
@@ -39,7 +39,7 @@ app.post("/pets", (req, res) => {
 //Get, handle all requests
 //readFileSync(path, options)
 app.get("/pets", (req, res) => {
-  const pet = fs.readFileSync("pets.json");
+  const pet = fs.readFileSync("pets.json", "utf-8");
   let petParse = JSON.parse(pet);
   res.send(petParse);
 });
